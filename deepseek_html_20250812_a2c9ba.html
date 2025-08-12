@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Visualizar em AR</title>
+    <title>Visualizar MCV em AR</title>
     <script>
-        // URL do seu modelo GLB (substitua pelo nome do seu arquivo)
-        const modelUrl = "https://SEU-USUARIO.github.io/modelo-3d-ar/produto.glb";
-        
-        // Detecta se é iOS (precisa de USDZ) ou Android (GLB)
+        const modelGLB = "https://geovani05.github.io/modelo-3d-ar/MCV.glb";
+        const modelUSDZ = "https://geovani05.github.io/modelo-3d-ar/MCV.usdz"; // Adicione após conversão
+
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            alert("Para iOS, converta seu GLB para USDZ e atualize este link.");
-            // window.location.href = "LINK_DO_SEU_USDZ"; // Descomente se tiver USDZ
+            window.location.href = modelUSDZ; // iOS
         } else {
-            // Android: Abre o Scene Viewer do Google
-            window.location.href = `https://arvr.google.com/scene-viewer?file=${encodeURIComponent(modelUrl)}`;
+            window.location.href = `https://arvr.google.com/scene-viewer?file=${modelGLB}`; // Android
         }
     </script>
 </head>
 <body>
-    <p>Redirecionando para AR... Se não funcionar, <a href="${modelUrl}">clique aqui</a>.</p>
+    <p>Redirecionando para AR... <a href="${modelGLB}">Clique aqui se não funcionar.</a></p>
 </body>
 </html>
