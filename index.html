@@ -7,13 +7,19 @@
         const modelUSDZ = "https://geovani05.github.io/modelo-3d-ar/MCV.usdz"; // Adicione após conversão
 
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            window.location.href = modelUSDZ; // iOS
+            if(modelUSDZ) {
+                window.location.href = modelUSDZ; // iOS com USDZ
+            } else {
+                alert("Para visualizar em AR no iPhone, converta MCV.glb para USDZ usando o Apple Reality Converter.");
+            }
         } else {
             window.location.href = `https://arvr.google.com/scene-viewer?file=${modelGLB}`; // Android
         }
     </script>
 </head>
 <body>
-    <p>Redirecionando para AR... <a href="${modelGLB}">Clique aqui se não funcionar.</a></p>
+    <p>Redirecionando para AR... 
+       <a href="${modelGLB}" download>Clique aqui para baixar o modelo 3D</a> caso o redirecionamento falhe.
+    </p>
 </body>
 </html>
