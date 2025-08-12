@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizar em AR</title>
+    <script>
+        // URL do seu modelo GLB (substitua pelo nome do seu arquivo)
+        const modelUrl = "https://SEU-USUARIO.github.io/modelo-3d-ar/produto.glb";
+        
+        // Detecta se é iOS (precisa de USDZ) ou Android (GLB)
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            alert("Para iOS, converta seu GLB para USDZ e atualize este link.");
+            // window.location.href = "LINK_DO_SEU_USDZ"; // Descomente se tiver USDZ
+        } else {
+            // Android: Abre o Scene Viewer do Google
+            window.location.href = `https://arvr.google.com/scene-viewer?file=${encodeURIComponent(modelUrl)}`;
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecionando para AR... Se não funcionar, <a href="${modelUrl}">clique aqui</a>.</p>
+</body>
+</html>
